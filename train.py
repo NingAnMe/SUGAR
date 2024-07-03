@@ -21,6 +21,8 @@ from sphere_register import train_val
 from utils.auxi_data import get_geometry_all_level_torch
 from weight import get_weight
 
+import warnings
+warnings.filterwarnings("ignore")
 
 freesurfer_home = '/opt/freesurfer'
 # ========================== Predict Config ============================= #
