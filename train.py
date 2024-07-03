@@ -43,12 +43,12 @@ for split in range(1, 6):
     subject_val_list_file = '904_val_list.txt'
 
     fsaverage_dir = f'{freesurfer_home}/subjects'  # FreeSurfer fsaverage6 目录
-    data_recon_all_dir = f'/mnt/ngshare/SurfReg/Data_Processing'  # FreeSurfer recon-all 结果目录
-    subject_list_dir = f'/mnt/ngshare/SurfReg/Data_Extra/list'  # subject_list 目录
+    data_recon_all_dir = f'Workdir/Data_Processing'  # FreeSurfer recon-all 结果目录
+    subject_list_dir = f'Workdir/Data_Extra/list'  # subject_list 目录
 
     # output dir
-    data_rigid_dir = f'/mnt/ngshare/SurfReg/Data_TrainResult/DataRigid'  # 结果文件目录
-    data_result_dir = f'/mnt/ngshare/SurfReg/Data_TrainResult/TrainResult'  # 结果文件目录
+    data_rigid_dir = f'Workdir/Data_TrainResult/DataRigid'  # 结果文件目录
+    data_result_dir = f'Workdir/Data_TrainResult/DataNonrigid'  # 结果文件目录
 
     # input data
     config["dir_fixed"] = fsaverage_dir
@@ -70,8 +70,8 @@ for split in range(1, 6):
     config['xyz'] = xyzs
     config['face'] = faces
 
-    # for ico_level in ['fsaverage3']:
-    for ico_level in ['fsaverage4']:
+    for ico_level in ['fsaverage3']:
+    # for ico_level in ['fsaverage4']:
     # for ico_level in ['fsaverage5']:
     # for ico_level in ['fsaverage6']:
         ico_levels = ['fsaverage3', 'fsaverage4', 'fsaverage5', 'fsaverage6']
@@ -88,10 +88,10 @@ for split in range(1, 6):
         config["output_channel"] = [3, 3, 3, 3][ico_index]  # 训练多少个epoch
 
         model_result_dir = [
-            f'/mnt/ngshare/SurfReg/SUGAR/models/fsaverage3_split_{split}',
-            f'/mnt/ngshare/SurfReg/SUGAR/models/fsaverage4_split_{split}',
-            f'/mnt/ngshare/SurfReg/SUGAR/models/fsaverage5_split_{split}',
-            f'/mnt/ngshare/SurfReg/SUGAR/models/fsaverage6_split_{split}',
+            f'Workdir/SUGAR/models/fsaverage3_split_{split}',
+            f'Workdir/SUGAR/models/fsaverage4_split_{split}',
+            f'Workdir/SUGAR/models/fsaverage5_split_{split}',
+            f'Workdir/SUGAR/models/fsaverage6_split_{split}',
         ]
 
         config["weight_corr"] = [0, 0, 0, 0][ico_index]  # lambda_cc 1 权重
